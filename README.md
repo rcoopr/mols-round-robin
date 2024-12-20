@@ -7,6 +7,8 @@ pnpm i
 pnpm dev
 ```
 
+or view here: https://mols-round-robin.vercel.app/
+
 Tests for generating MOLS:
 
 ```sh
