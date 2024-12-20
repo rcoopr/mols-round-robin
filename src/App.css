@@ -1,0 +1,92 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+em {
+  font-style: italic;
+  font-family: 'JetBrains Mono', monospace;
+  color: orange;
+}
+
+p {
+  max-width: 80ch;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+caption {
+  font-style: italic;
+  opacity: 0.8;
+  font-family: Garamond, serif;
+}
+
+.card {
+  padding: 2em;
+}
+
+.sudoku {
+  display: grid;
+  grid-template-rows: repeat(var(--n), 1fr);
+  grid-template-columns: repeat(var(--n), 1fr);
+
+  /* borders */
+  --gap: 0px;
+  --line-offset: calc(var(--gap) / 2);
+  --line-thickness: 1px;
+  --line-color: rgb(73, 73, 73);
+  overflow: hidden;
+  gap: var(--gap);
+  border: var(--line-thickness) solid var(--line-color);
+  border-width: 0 var(--line-thickness) var(--line-thickness) 0;
+}
+
+.sudoku > div {
+  padding: 0 4px;
+  font-size: 1.7rem;
+  min-width: 2.5ch;
+  min-height: 2.5ch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+
+  /* borders */
+  position: relative;
+}
+
+/* borders */
+.sudoku > div::before,
+.sudoku > div::after {
+  content: '';
+  position: absolute;
+  background-color: var(--line-color);
+  z-index: 1;
+}
+
+/* row borders */
+.sudoku > div::after {
+  inline-size: 100vw;
+  block-size: var(--line-thickness);
+  inset-inline-start: 0;
+  inset-block-start: calc(var(--line-offset) * -1);
+}
+
+/* column borders */
+.sudoku > div::before {
+  inline-size: var(--line-thickness);
+  block-size: 100vh;
+  inset-inline-start: calc(var(--line-offset) * -1);
+}
+
+.sudoku-highlight {
+  --line-color: rgb(161, 112, 21);
+}
