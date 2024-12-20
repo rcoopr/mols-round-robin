@@ -222,7 +222,11 @@ export default function App() {
 
       <h2 className="mt-12">Let's try it out</h2>
       <EvenGroupingExample />
-      <p>Fantastic. It works. But what about when we don't have a perfectly even grouping?</p>
+      <p>
+        Fantastic. It works... Although we have some repeated patterns in the MOLS. 6 is a tough
+        number for them to deal with unfortunately. Also what about when we don't have a perfectly
+        even grouping?
+      </p>
       <hr className="h-px w-full my-8 opacity-50" />
       <UnevenGroupingExample />
       <caption>Uh oh</caption>
@@ -272,12 +276,12 @@ function EvenGroupingExample() {
       <div className="flex flex-wrap gap-8 justify-center items-start  w-full mb-8">
         {groups.map((group, gi) => (
           <div className="flex flex-col gap-4">
-            <div className="sudoku" style={{ '--n': 1 }}>
+            <div className="sudoku [&>*]:text-lg!" style={{ '--n': 1 }}>
               {Array.from({ length: groupSize }, (_, i) => (
                 <div>{group[i]}</div>
               ))}
             </div>
-            <div className="sudoku" style={{ '--n': groupSize }}>
+            <div className="sudoku [&>*]:text-lg!" style={{ '--n': groupSize }}>
               {mols[gi].flat().map((i) => (
                 <div>{group[i]?.[0]}</div>
               ))}
@@ -329,12 +333,12 @@ function UnevenGroupingExample() {
       <div className="flex flex-wrap gap-8 justify-center items-start  w-full mb-8">
         {groups.map((group, gi) => (
           <div className="flex flex-col gap-4">
-            <div className="sudoku" style={{ '--n': 1 }}>
+            <div className="sudoku [&>*]:text-lg!" style={{ '--n': 1 }}>
               {Array.from({ length: groupSize }, (_, i) => (
                 <div>{group[i]}</div>
               ))}
             </div>
-            <div className="sudoku" style={{ '--n': groupSize }}>
+            <div className="sudoku [&>*]:text-lg!" style={{ '--n': groupSize }}>
               {mols[gi].flat().map((i) => (
                 <div>{group[i]?.[0]}</div>
               ))}
@@ -417,12 +421,12 @@ function TinkeredExample() {
       <div className="flex flex-wrap gap-8 justify-center items-start  w-full mb-8">
         {groups.map((group, gi) => (
           <div className="flex flex-col gap-4">
-            <div className="sudoku" style={{ '--n': 1 }}>
+            <div className="sudoku [&>*]:text-lg!" style={{ '--n': 1 }}>
               {Array.from({ length: groupSize }, (_, i) => (
                 <div>{group[i]}</div>
               ))}
             </div>
-            <div className="sudoku" style={{ '--n': groupSize }}>
+            <div className="sudoku [&>*]:text-lg!" style={{ '--n': groupSize }}>
               {mols[gi].flat().map((i) => (
                 <div>{group[i]?.[0]}</div>
               ))}
